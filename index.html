@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小瞳力视觉训练</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="训练导航">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span></div>
+          <div>
+            <h1>小瞳力</h1>
+            <p>儿童视觉发育训练</p>
+          </div>
+        </div>
+
+        <section class="panel compact">
+          <div class="panel-title">今日训练</div>
+          <div class="ring" id="dailyRing" aria-label="今日训练进度">
+            <span id="dailyMinutes">0</span>
+            <small>分钟</small>
+          </div>
+          <p class="muted">建议每次 5-15 分钟，中途眨眼和远眺休息。</p>
+        </section>
+
+        <nav class="module-list" id="moduleList" aria-label="训练项目"></nav>
+
+        <section class="panel note">
+          <strong>重要提示</strong>
+          <p>弱视训练方案应由眼科医生或视光师制定。本软件只做家庭辅助训练记录和互动练习，请按医嘱遮盖优势眼或使用红蓝镜。</p>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="moduleType">视觉追踪</p>
+            <h2 id="moduleTitle">追光小球</h2>
+          </div>
+          <div class="status-grid">
+            <div><span>得分</span><strong id="score">0</strong></div>
+            <div><span>剩余</span><strong id="timeLeft">05:00</strong></div>
+            <div><span>难度</span><strong id="levelLabel">3</strong></div>
+          </div>
+        </header>
+
+        <section class="training-band">
+          <div class="canvas-frame">
+            <div class="canvas-wrap">
+              <canvas id="trainingCanvas" width="1200" height="675" aria-label="训练区域"></canvas>
+              <div class="pause-layer" id="pauseLayer">
+                <strong>准备开始</strong>
+                <span id="pauseText">选择训练项目后点击开始。</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-band" aria-label="训练设置">
+          <div class="setting">
+            <label for="duration">单次时长</label>
+            <select id="duration">
+              <option value="180">3 分钟</option>
+              <option value="300" selected>5 分钟</option>
+              <option value="600">10 分钟</option>
+              <option value="900">15 分钟</option>
+            </select>
+          </div>
+          <div class="setting">
+            <label for="difficulty">难度</label>
+            <input id="difficulty" type="range" min="1" max="6" value="3" />
+          </div>
+          <div class="setting">
+            <label for="eyeMode">训练方式</label>
+            <select id="eyeMode">
+              <option value="doctor">按医嘱遮盖/配镜</option>
+              <option value="left">左眼重点</option>
+              <option value="right">右眼重点</option>
+              <option value="both">双眼协同</option>
+            </select>
+          </div>
+          <label class="toggle">
+            <input id="soundToggle" type="checkbox" checked />
+            <span>提示音</span>
+          </label>
+        </section>
+
+        <section class="records-band">
+          <div>
+            <h3>训练记录</h3>
+            <p class="muted" id="recordHint">完成一次训练后会自动保存到本机。</p>
+          </div>
+          <div class="record-list" id="recordList"></div>
+        </section>
+      </section>
+
+      <div class="controls">
+        <button class="primary" id="startBtn" type="button">开始</button>
+        <button class="ghost" id="pauseBtn" type="button">暂停</button>
+        <button class="ghost icon-btn" id="fullBtn" type="button" aria-label="全屏">⛶</button>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

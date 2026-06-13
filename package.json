@@ -1,0 +1,35 @@
+{
+  "name": "xiaotongli-vision-trainer",
+  "version": "1.2.0",
+  "description": "儿童视觉发育与弱视恢复辅助训练软件",
+  "main": "main.js",
+  "author": "Codex",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "pack:win": "electron-builder --win portable --x64",
+    "pack:dir": "electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.xiaotongli.visiontrainer",
+    "productName": "小瞳力视觉训练",
+    "files": [
+      "index.html",
+      "styles.css",
+      "app.js",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "artifactName": "xiaotongli-vision-trainer-${version}-${arch}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^38.8.6",
+    "electron-builder": "^26.0.0"
+  }
+}
