@@ -9,7 +9,8 @@
   "scripts": {
     "start": "electron .",
     "pack:win": "electron-builder --win portable --x64",
-    "pack:dir": "electron-builder --dir"
+    "pack:dir": "electron-builder --dir",
+    "check:syntax": "node --check main.js && node --check app.js"
   },
   "build": {
     "appId": "com.xiaotongli.visiontrainer",
